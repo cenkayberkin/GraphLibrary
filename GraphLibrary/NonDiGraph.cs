@@ -6,7 +6,7 @@ using System.IO;
 
 namespace GraphLibrary
 {
-	public class Graph
+	public class NonDiGraph
 	{
 		private readonly int numOfNodes;
 		private int numOfEdges;
@@ -20,14 +20,14 @@ namespace GraphLibrary
 			return numOfEdges;
 		}
 
-		public Graph (int v)
+		public NonDiGraph (int v)
 		{
 			numOfNodes = v;
 			numOfEdges = 0;
 			generateNodes ();
 		}
 
-		public Graph (string filePath)
+		public NonDiGraph (string filePath)
 		{
 			dictionary = new Dictionary<int, HashSet<int>> ();
 			System.IO.StreamReader file = new System.IO.StreamReader(filePath);

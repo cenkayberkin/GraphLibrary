@@ -1,5 +1,6 @@
 ﻿using System;
 using GraphLibrary;
+using System.Linq;
 
 namespace GraphConsole
 {
@@ -7,13 +8,12 @@ namespace GraphConsole
 	{
 		public static void Main (string[] args)
 		{
-			Graph g = new Graph ("../../../GraphLibrary/tinyGraph.txt");
-			g.AddEdge (0, 6);
-			g.AddEdge (0, 6);
+			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
 
-			Console.WriteLine (g.MaxDegree());
-
-			Console.WriteLine (g.ToString ());
+			DFSProcess p = new DFSProcess (g,0);
+			Console.WriteLine (string.Join (" ", p.edgeTo));
+			Console.WriteLine (string.Join (" ", p.visited));
+			Console.WriteLine (string.Format("{0} nodes could be reached from {1}",p.count,0));
 
 			Console.WriteLine ("Hello World!");
 		}
