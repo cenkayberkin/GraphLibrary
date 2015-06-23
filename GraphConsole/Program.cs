@@ -10,21 +10,31 @@ namespace GraphConsole
 		{
 			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
 
-			DFSProcess p = new DFSProcess (g,0);
-			Console.WriteLine (string.Join (" ", p.edgeTo));
-			Console.WriteLine (string.Join (" ", p.visited));
+//			DFSProcess p = new DFSProcess (g,0);
+//			Console.WriteLine (string.Join (" ", p.edgeTo));
+//			Console.WriteLine (string.Join (" ", p.visited));
+//
+//			for (int i = 1; i < g.V(); i++) {
+//				if (p.PathTo(i) != null) {
+//					Console.WriteLine ("0 => (" + i + ") " +string.Join (" ", p.PathTo (i).ToArray<int> ()));	
+//				} else {
+//					Console.WriteLine ("Not connected to {0}",i);	
+//				}	
+//			}
+
+			BFSProcess bfs = new BFSProcess (g,0);
+			Console.WriteLine (string.Join (" ", bfs.edgeTo));
+			Console.WriteLine (string.Join (" ", bfs.visited));
 
 			for (int i = 1; i < g.V(); i++) {
-				if (p.PathTo(i) != null) {
-					Console.WriteLine ("0 => (" + i + ") " +string.Join (" ", p.PathTo (i).ToArray<int> ()));	
+				if (bfs.PathTo(i) != null) {
+					Console.WriteLine ("0 => (" + i + ") " +string.Join (" ", bfs.PathTo (i).ToArray<int> ()));	
 				} else {
 					Console.WriteLine ("Not connected to {0}",i);	
 				}	
-			}	
+			}
 
-			Console.WriteLine (string.Format("{0} nodes could be reached from {1}",p.count,0));
 
-			Console.WriteLine ("Hello World!");
 		}
 	}
 }
