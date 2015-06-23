@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GraphLibrary
 {
@@ -16,7 +18,7 @@ namespace GraphLibrary
 		{
 			this.v = v;
 			this.graph = graph;
-			edgeTo = Enumerable.Repeat(int.MinValue, graph.V()).ToArray<int>();
+			edgeTo = Enumerable.Repeat(-1, graph.V()).ToArray<int>();
 
 			visited = new bool[graph.V ()];	
 
@@ -37,7 +39,25 @@ namespace GraphLibrary
 				}
 			}
 		}
-		public bool Marked(int s)
+
+		public List<int> PathTo(int s)
+		{
+			if (!HasPathTo(s)) {
+				return null;
+			}
+			Stack<int> stack = new Stack<int> ();
+			stack.Push (s);
+			int temp = s;
+			while (v != edgeTo[temp]) {
+				stack.Push (edgeTo[temp]);
+				temp = edgeTo [temp];
+			}
+			stack.Push (v);
+
+			return stack.ToList();
+		}
+
+		public bool HasPathTo(int s)
 		{
 			return visited [s];
 		}
