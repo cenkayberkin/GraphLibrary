@@ -8,7 +8,8 @@ namespace GraphConsole
 	{
 		public static void Main (string[] args)
 		{
-			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
+//			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
+			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/ACyclicGraph.txt");
 
 //			DFSProcess p = new DFSProcess (g,0);
 //			Console.WriteLine (string.Join (" ", p.edgeTo));
@@ -34,11 +35,13 @@ namespace GraphConsole
 //				}	
 //			}
 
-			CCProcess cc = new CCProcess (g);
-			Console.WriteLine (string.Join (" ", cc.CC));
-			Console.WriteLine (cc.Connected (0, 10));
-			cc.PrintComponent ();
-
+//			CCProcess cc = new CCProcess (g);
+//			Console.WriteLine (string.Join (" ", cc.CC));
+//			Console.WriteLine (cc.Connected (0, 10));
+//			cc.PrintComponent ();
+		
+			CyclicDetection cd = new CyclicDetection (g);
+			Console.WriteLine (cd.IsCyclic);
 		}
 	}
 }

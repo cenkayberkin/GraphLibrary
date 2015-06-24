@@ -36,9 +36,11 @@
     <Compile Include="DFSProcess.cs" />
     <Compile Include="BFSProcess.cs" />
     <Compile Include="CCProcess.cs" />
+    <Compile Include="CyclicDetection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="tinyGraph.txt" />
+    <None Include="ACyclicGraph.txt" />
   </ItemGroup>
 </Project>
