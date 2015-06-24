@@ -6,11 +6,11 @@ using System.IO;
 
 namespace GraphLibrary
 {
-	public class Graph
+	public class NonDiGraph
 	{
 		private readonly int numOfNodes;
 		private int numOfEdges;
-		private Dictionary<int,List<int>> dictionary;
+		private Dictionary<int,HashSet<int>> dictionary;
 
 		public int V (){
 			return numOfNodes;
@@ -20,16 +20,16 @@ namespace GraphLibrary
 			return numOfEdges;
 		}
 
-		public Graph (int v)
+		public NonDiGraph (int v)
 		{
 			numOfNodes = v;
 			numOfEdges = 0;
 			generateNodes ();
 		}
 
-		public Graph (string filePath)
+		public NonDiGraph (string filePath)
 		{
-			dictionary = new Dictionary<int, List<int>> ();
+			dictionary = new Dictionary<int, HashSet<int>> ();
 			System.IO.StreamReader file = new System.IO.StreamReader(filePath);
 			int count = 0;
 			string line;
@@ -65,19 +65,20 @@ namespace GraphLibrary
 
 		public List<int> Adj(int v)
 		{   
-			return dictionary [v];
+			return dictionary [v].ToList ();
 		}
 
 		public void AddEdge(int v, int w){
 			if (dictionary [v] == null) {
-				dictionary [v] = new List<int> (){ w };
+				dictionary [v] = new HashSet<int> (){ w };
 			}
 			else {
 				dictionary [v].Add (w);
 			}
 
 			if (dictionary [w] == null) {
-				dictionary [w] = new List<int> (){ v };
+				dictionary [w] = new HashSet<int> (){ v };
+
 			}
 			else {
 				dictionary [w].Add (v);
@@ -91,6 +92,30 @@ namespace GraphLibrary
 				var node2 = int.Parse (item.Split (null) [1]);
 				AddEdge (node1, node2);
 			}
+		}
+
+		public int degree(int v)
+		{
+			if (!dictionary.ContainsKey(v)) {
+				throw new ArgumentException ("Graph node {0} doesnt exists "+ v);
+			}
+
+			if (dictionary [v] != null) {
+				return dictionary [v].Count ();
+			} else {
+				return 0;
+			}
+		}
+
+		public int MaxDegree()
+		{
+			int max = int.MinValue;
+			foreach (var node in dictionary.Keys) {
+				if(degree(node) > max){
+					max = dictionary [node].Count ();
+				}
+			}
+			return max;
 		}
 
 		void generateNodes()
