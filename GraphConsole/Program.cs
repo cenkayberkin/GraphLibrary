@@ -22,17 +22,21 @@ namespace GraphConsole
 //				}	
 //			}
 
-			BFSProcess bfs = new BFSProcess (g,0);
-			Console.WriteLine (string.Join (" ", bfs.edgeTo));
-			Console.WriteLine (string.Join (" ", bfs.visited));
+//			BFSProcess bfs = new BFSProcess (g,0);
+//			Console.WriteLine (string.Join (" ", bfs.edgeTo));
+//			Console.WriteLine (string.Join (" ", bfs.visited));
+//
+//			for (int i = 1; i < g.V(); i++) {
+//				if (bfs.PathTo(i) != null) {
+//					Console.WriteLine ("0 => (" + i + ") " +string.Join (" ", bfs.PathTo (i).ToArray<int> ()));	
+//				} else {
+//					Console.WriteLine ("Not connected to {0}",i);	
+//				}	
+//			}
 
-			for (int i = 1; i < g.V(); i++) {
-				if (bfs.PathTo(i) != null) {
-					Console.WriteLine ("0 => (" + i + ") " +string.Join (" ", bfs.PathTo (i).ToArray<int> ()));	
-				} else {
-					Console.WriteLine ("Not connected to {0}",i);	
-				}	
-			}
+			CCProcess cc = new CCProcess (g);
+			Console.WriteLine (string.Join (" ", cc.CC));
+			Console.WriteLine (cc.Connected (0, 10));
 
 
 		}

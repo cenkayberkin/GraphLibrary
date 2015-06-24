@@ -35,6 +35,7 @@
     <Compile Include="NonDiGraph.cs" />
     <Compile Include="DFSProcess.cs" />
     <Compile Include="BFSProcess.cs" />
+    <Compile Include="CCProcess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
