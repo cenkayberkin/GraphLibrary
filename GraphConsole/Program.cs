@@ -37,7 +37,7 @@ namespace GraphConsole
 			CCProcess cc = new CCProcess (g);
 			Console.WriteLine (string.Join (" ", cc.CC));
 			Console.WriteLine (cc.Connected (0, 10));
-
+			cc.PrintComponent ();
 
 		}
 	}

@@ -52,6 +52,23 @@ namespace GraphLibrary
 				}
 			}
 		}
+
+		public void PrintComponent()
+		{
+			Dictionary<int,string> groups = new Dictionary<int, string> ();
+			for (int i = 0; i < graph.V(); i++) {
+				if (groups.ContainsKey (CC [i])) {
+					groups [CC [i]] += " " + i;
+				} else {
+					groups [CC [i]] = i.ToString();
+				}	
+			}
+				
+			Console.WriteLine ("** Connected components **");
+			foreach (var item in groups.Keys) {
+				Console.WriteLine (groups[item]);
+			}
+		}
 	}
 }
 
