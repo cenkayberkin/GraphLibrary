@@ -37,6 +37,7 @@
     <Compile Include="BFSProcess.cs" />
     <Compile Include="CCProcess.cs" />
     <Compile Include="CyclicDetection.cs" />
+    <Compile Include="ColoringProcess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

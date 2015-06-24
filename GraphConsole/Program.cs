@@ -8,8 +8,8 @@ namespace GraphConsole
 	{
 		public static void Main (string[] args)
 		{
-//			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
-			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/ACyclicGraph.txt");
+			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
+//			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/ACyclicGraph.txt");
 
 //			DFSProcess p = new DFSProcess (g,0);
 //			Console.WriteLine (string.Join (" ", p.edgeTo));
@@ -40,8 +40,12 @@ namespace GraphConsole
 //			Console.WriteLine (cc.Connected (0, 10));
 //			cc.PrintComponent ();
 		
-			CyclicDetection cd = new CyclicDetection (g);
-			Console.WriteLine (cd.IsCyclic);
+//			CyclicDetection cd = new CyclicDetection (g);
+//			Console.WriteLine (cd.IsCyclic);
+
+			ColoringProcess cp = new ColoringProcess (g);
+			Console.WriteLine (cp.IsTwoColorable);
+			Console.WriteLine (string.Join(" ", cp.colors));
 		}
 	}
 }
