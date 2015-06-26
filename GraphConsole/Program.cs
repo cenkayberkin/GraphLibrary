@@ -46,6 +46,13 @@ namespace GraphConsole
 			ColoringProcess cp = new ColoringProcess (g);
 			Console.WriteLine (cp.IsTwoColorable);
 			Console.WriteLine (string.Join(" ", cp.colors));
+
+			//Di graph
+			DiGraph diGraph = new DiGraph("../../../GraphLibrary/tinyGraph.txt");
+			Console.WriteLine (diGraph);
+			Console.WriteLine (" revers below");
+			Console.WriteLine (diGraph.Reverse());
+
 		}
 	}
 }
