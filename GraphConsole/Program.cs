@@ -43,16 +43,24 @@ namespace GraphConsole
 //			CyclicDetection cd = new CyclicDetection (g);
 //			Console.WriteLine (cd.IsCyclic);
 
-			ColoringProcess cp = new ColoringProcess (g);
-			Console.WriteLine (cp.IsTwoColorable);
-			Console.WriteLine (string.Join(" ", cp.colors));
+//			ColoringProcess cp = new ColoringProcess (g);
+//			Console.WriteLine (cp.IsTwoColorable);
+//			Console.WriteLine (string.Join(" ", cp.colors));
+//
 
 			//Di graph
-			DiGraph diGraph = new DiGraph("../../../GraphLibrary/tinyGraph.txt");
+			DiGraph diGraph = new DiGraph("../../../GraphLibrary/topologicalSortExampleGraph.txt");
 			Console.WriteLine (diGraph);
-			Console.WriteLine (" revers below");
-			Console.WriteLine (diGraph.Reverse());
 
+//			DirectedDFS diDfs = new DirectedDFS (diGraph, 2);
+//			Console.WriteLine (diDfs.HasPathTo (5));
+
+//			DirectedBFS diBfs = new DirectedBFS (diGraph, 0);
+//			Console.WriteLine (diBfs.distTo[2]);
+//
+
+			TopologicalSort sort = new TopologicalSort (diGraph);
+			sort.PrintOrderedNodes ();
 		}
 	}
 }

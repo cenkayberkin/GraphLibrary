@@ -39,10 +39,15 @@
     <Compile Include="CyclicDetection.cs" />
     <Compile Include="ColoringProcess.cs" />
     <Compile Include="DiGraph.cs" />
+    <Compile Include="DirectedDFS.cs" />
+    <Compile Include="DirectedBFS.cs" />
+    <Compile Include="TopologicalSort.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="tinyGraph.txt" />
     <None Include="ACyclicGraph.txt" />
+    <None Include="tinyDiGraph.txt" />
+    <None Include="topologicalSortExampleGraph.txt" />
   </ItemGroup>
 </Project>
