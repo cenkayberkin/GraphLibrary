@@ -42,6 +42,8 @@
     <Compile Include="DirectedDFS.cs" />
     <Compile Include="DirectedBFS.cs" />
     <Compile Include="TopologicalSort.cs" />
+    <Compile Include="Edge.cs" />
+    <Compile Include="EdgeWeightedGraph.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -49,5 +51,6 @@
     <None Include="ACyclicGraph.txt" />
     <None Include="tinyDiGraph.txt" />
     <None Include="topologicalSortExampleGraph.txt" />
+    <None Include="tinyEWG.txt" />
   </ItemGroup>
 </Project>

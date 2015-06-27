@@ -8,7 +8,7 @@ namespace GraphConsole
 	{
 		public static void Main (string[] args)
 		{
-			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
+//			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/tinyGraph.txt");
 //			NonDiGraph g = new NonDiGraph ("../../../GraphLibrary/ACyclicGraph.txt");
 
 //			DFSProcess p = new DFSProcess (g,0);
@@ -49,8 +49,8 @@ namespace GraphConsole
 //
 
 			//Di graph
-			DiGraph diGraph = new DiGraph("../../../GraphLibrary/topologicalSortExampleGraph.txt");
-			Console.WriteLine (diGraph);
+//			DiGraph diGraph = new DiGraph("../../../GraphLibrary/topologicalSortExampleGraph.txt");
+//			Console.WriteLine (diGraph);
 
 //			DirectedDFS diDfs = new DirectedDFS (diGraph, 2);
 //			Console.WriteLine (diDfs.HasPathTo (5));
@@ -59,8 +59,13 @@ namespace GraphConsole
 //			Console.WriteLine (diBfs.distTo[2]);
 //
 
-			TopologicalSort sort = new TopologicalSort (diGraph);
-			sort.PrintOrderedNodes ();
+//			TopologicalSort sort = new TopologicalSort (diGraph);
+//			sort.PrintOrderedNodes ();
+
+			EdgeWeightedGraph edWGraph = new EdgeWeightedGraph("../../../GraphLibrary/tinyEWG.txt");
+
+			Console.WriteLine (string.Join(" ",edWGraph.Adj (1)));
+
 		}
 	}
 }
