@@ -62,10 +62,13 @@ namespace GraphConsole
 //			TopologicalSort sort = new TopologicalSort (diGraph);
 //			sort.PrintOrderedNodes ();
 
-			EdgeWeightedGraph edWGraph = new EdgeWeightedGraph("../../../GraphLibrary/tinyEWG.txt");
+//			EdgeWeightedGraph edWGraph = new EdgeWeightedGraph("../../../GraphLibrary/NonCyclicEWG.txt");
+//			WeightedCyclicDetection cd = new WeightedCyclicDetection (edWGraph);
 
-			Console.WriteLine (string.Join(" ",edWGraph.Adj (1)));
+//			Console.WriteLine (string.Join(" ",edWGraph.Edges().OrderBy(a => a.Weight())));
 
+			EdgeWeightedDiGraph diGraph = new EdgeWeightedDiGraph ("../../../GraphLibrary/tinyEWG.txt");
+			Console.WriteLine (string.Join(" ",diGraph.Edges ()));
 		}
 	}
 }

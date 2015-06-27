@@ -6,15 +6,15 @@ using System.IO;
 
 namespace GraphLibrary
 {
-	public class EdgeWeightedGraph
+	public class EdgeWeightedDiGraph
 	{
 		private readonly int numOfNodes;
 		private int numOfEdges;
-		private Dictionary<int,HashSet<Edge>> dictionary;
+		private Dictionary<int,HashSet<DirectedEdge>> dictionary;
 
-		public EdgeWeightedGraph (string filePath)
+		public EdgeWeightedDiGraph (string filePath)
 		{
-			dictionary = new Dictionary<int, HashSet<Edge>> ();
+			dictionary = new Dictionary<int, HashSet<DirectedEdge>> ();
 			System.IO.StreamReader file = new System.IO.StreamReader(filePath);
 			int count = 0;
 			string line;
@@ -49,46 +49,33 @@ namespace GraphLibrary
 
 		}
 
-		public List<Edge> Edges()
+		public List<DirectedEdge> Edges()
 		{
-			List<Edge> result = new List<Edge> ();
+			List<DirectedEdge> result = new List<DirectedEdge> ();
 			for (int i = 0; i < this.numOfNodes; i++) 
 			{
 				foreach (var item in dictionary[i]) 
 				{
-					if (item.Other(i) > i) {
-						result.Add (item);	
-					}
-
+					result.Add (item);	
 				}
 			}
 			return result;
 		}
 
-		public List<Edge> Adj(int v)
+		public List<DirectedEdge> Adj(int v)
 		{   
 			return dictionary [v].ToList ();
 		}
 
 		public void AddEdge(int v, int w,double weight){
-			Edge e1 = new Edge (v,w,weight);
+
+			DirectedEdge e1 = new DirectedEdge (v,w,weight);
 
 			if (dictionary [v] == null) {
-				dictionary [v] = new HashSet<Edge> (){ e1 };
+				dictionary [v] = new HashSet<DirectedEdge> (){ e1 };
 			}
 			else {
 				dictionary [v].Add (e1);
-			}
-
-
-			Edge e2 = new Edge (w,v,weight);
-
-			if (dictionary [w] == null) {
-				dictionary [w] = new HashSet<Edge> (){ e2 };
-
-			}
-			else {
-				dictionary [w].Add (e2);
 			}
 		}
 
